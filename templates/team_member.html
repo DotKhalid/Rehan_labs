@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ team_member }}'s AI Tools</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>{{ team_member }}'s AI Tools</h1>
+    
+    <ul>
+        {% for tool in tools_data[team_member] %}
+        <li>
+            <h2>{{ tool['name'] }}</h2>
+            <p>{{ tool['description'] }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <footer>{{ footer }}</footer>
+</body>
+</html>

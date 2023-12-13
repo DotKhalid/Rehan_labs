@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rehan Labs</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Additional footer styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* Styling for cards in the main content */
+        .card {
+            margin: 10px;
+        }
+        .team-members {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        .team-members ul {
+            list-style: none;
+            padding: 0;
+        }
+        .team-members ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .team-members ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .team-members ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar using Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Rehan Labs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- Add other navigation links here if needed -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <!-- Search form in the navbar -->
+            <form class="form-inline ml-auto" action="{{ url_for('search_tools') }}" method="post">
+                <input class="form-control mr-sm-2" type="text" name="search_query" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Team members displayed in a row -->
+    <div class="team-members">
+        <ul>
+            <li>Team Members</li>
+            {% for team_member in navbar %}
+            <li><a href="{{ url_for('team_member_page', member=team_member) }}">{{ team_member }}</a></li>
+            {% endfor %}
+            <!-- Additional team members -->
+            <li><a href="{{ url_for('team_member_page', member='Fahad') }}">Fahad</a></li>
+            <li><a href="{{ url_for('team_member_page', member='Nasar') }}">Nasar</a></li>
+            <li><a href="{{ url_for('team_member_page', member='Zaryab') }}">Zaryab</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content with cards -->
+    <div class="container">
+        <h1>Welcome to Rehan Labs</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tool 1</h5>
+                        <p class="card-text">This is the content of card 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tool 2</h5>
+                        <p class="card-text">This is the content of card 2.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tool 2</h5>
+                        <p class="card-text">This is the content of card 2.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tool 1</h5>
+                        <p class="card-text">This is the content of card 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tool 1</h5>
+                        <p class="card-text">This is the content of card 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tool 2</h5>
+                        <p class="card-text">This is the content of card 2.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tool 1</h5>
+                        <p class="card-text">This is the content of card 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tool 1</h5>
+                        <p class="card-text">This is the content of card 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tool 2</h5>
+                        <p class="card-text">This is the content of card 2.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </div>
+
+    <!-- Footer with "2023 Rehan Labs" -->
+    <footer>
+        2023 Rehan Labs
+    </footer>
+
+    <!-- Add Bootstrap JS and jQuery script links here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
